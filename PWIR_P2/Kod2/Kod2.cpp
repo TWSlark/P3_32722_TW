@@ -17,15 +17,15 @@ int main() {
     std::cout << "Podaj ilosc watkow: ";
     std::cin >> thread_count;
 
-    std::vector<std::thread> wektor;
+    std::vector<std::thread*> wektor;
 
     //alokacja tablicy, która będzie przechowywać wskaźniki na wątki
     //std::thread** threads = new std::thread * [thread_count];
 
     //otwieranie wątków
     for (int i = 0; i < thread_count; i++) {
-        std::thread th1(action, i);
-        wektor.push_back(std::move(th1));
+        std::thread* wskaznik = new std::thread(action, i);
+        wektor.push_back(wskaznik);
     }
 
     //watki pracują, ale trzeba je zsynchronizować
@@ -39,12 +39,13 @@ int main() {
     //}
     //delete[] threads;
 
-    for (std::thread& th : wektor) {
-        if (th.joinable())
-            th.join();
+    for (auto wskaznik : wektor) {
+        wskaznik->join();
     }
 
-    wektor.clear();
+    for (auto wskaznik : wektor) {
+        delete wskaznik;
+    }
 
     printf("Koniec programu \r\n");
 
