@@ -10,13 +10,13 @@ int main() {
     std::ifstream file("plik.txt");
     auto end = std::chrono::steady_clock::now();
 
-    std::cout << "Czas otwierania pliku: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << " milisekund" << std::endl;
+    std::cout << "Czas otwierania pliku: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << " mikrosekund" << std::endl;
 
     start = std::chrono::steady_clock::now();
     file.close();
     end = std::chrono::steady_clock::now();
 
-    std::cout << "Czas zamykania pliku: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << " milisekund" << std::endl;
+    std::cout << "Czas zamykania pliku: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << " mikrosekund" << std::endl;
     */
 
     auto start = std::chrono::steady_clock::now();
@@ -35,7 +35,7 @@ int main() {
 
     auto end = std::chrono::steady_clock::now();
 
-    std::cout << "Czas: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << " milisekund" << std::endl;
+    std::cout << "Czas: " << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << " milisekund" << std::endl;
 
     return 0;
 }
