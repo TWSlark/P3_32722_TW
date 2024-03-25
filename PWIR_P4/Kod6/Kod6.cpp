@@ -17,7 +17,7 @@ void calculatePI(int id, double step, unsigned long long steps_per_thread) {
 }
 
 int main() {
-    int threads_count = 10;
+    int threads_count = 5;
     unsigned long long steps = 90000000000;
     double step = 1.0 / steps;
 
